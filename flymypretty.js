@@ -21,11 +21,22 @@ function takeOff() {
     console.log('take off');
     rollingSpider.takeOff();
     rollingSpider.flatTrim();
+    flying = true;
 }
 
 function land() {
     console.log('land');
     rollingSpider.land();
+}
+
+function quit() {
+    if(flying) {
+	land();
+    }
+    setTimeout(function() {
+	console.log('quit');
+	process.exit();
+    }, 500);
 }
 
 var flying = false;
@@ -35,7 +46,7 @@ process.stdin.on('keypress', function(str, key) {
     console.log('on keypress', str, key);
 
     if (key && key.ctrl && key.name == 'c') {
-	process.exit();
+	quit();
     }
 
     if (flying) {
