@@ -27,6 +27,7 @@ function takeOff() {
 function land() {
     console.log('land');
     rollingSpider.land();
+    flying = false;
 }
 
 function quit() {
