@@ -36,7 +36,7 @@ function quit() {
     }
     setTimeout(function() {
 	console.log('quit');
-	process.exit();
+	process.exit(0);
     }, 500);
 }
 
@@ -48,6 +48,10 @@ process.stdin.on('keypress', function(str, key) {
 
     if (key && key.ctrl && key.name == 'c') {
 	quit();
+	return;
+    }
+
+    if (key.name !== 'space') {
 	return;
     }
 
