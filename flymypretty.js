@@ -47,6 +47,7 @@ process.stdin.on('keypress', function(str, key) {
 
     if (key && key.ctrl && key.name == 'c') {
 	quit();
+	return;
     }
 
     if (flying) {
